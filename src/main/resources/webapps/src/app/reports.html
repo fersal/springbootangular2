@@ -1,0 +1,20 @@
+<html>
+  <div class="col-lg-6" id="content">
+    <h2 *ngIf="journals">You have {{journalSize}} Journals </h2>
+    <div>
+      <ul>
+        <li *ngFor="let journal of journals"
+          [class.selectedEntry]="journal === selectedJournal"
+          (click)="onSelectEntry(journal)">
+          <span>{{journal.journalId}} Name: {{journal.journalName}}</span>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="selectedJournal">
+      <h2>{{selectedJournal.journalName}}</h2>
+      <div>Created by UserId: {{selectedJournal.userId}}</div>
+      <div>Journal Id: {{selectedJournal.journalId}}</div>
+
+    </div>
+  </div>
+</html>

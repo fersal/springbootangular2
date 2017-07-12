@@ -1,0 +1,33 @@
+<html>
+<div class="col-lg-6" id="content">
+  <ng-container>
+    <h1>Select a date</h1>
+    <div>
+      <input type="date" [(ngModel)]="dateToSearch">
+    </div>
+    <div>
+      <button type="submit" class="btn btn-success">Search</button>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="journalEntries">
+    <h1>These are the entries for the past five days</h1>
+    <ul>
+      <li *ngFor="let journalEntry of journalEntries" (click)="selectJournalEntry(journalEntry)"
+          [class.selected]="journalEntry === selectedJournalEntry">
+        <span>Entry created on {{journalEntry.createdDate}}</span>
+      </li>
+    </ul>
+  </ng-container>
+  <div *ngIf="selectedJournalEntry">
+    <span>{{selectedJournalEntry.positiveReview}}</span>
+    <span>{{selectedJournalEntry.goal}}</span>
+    <span>{{selectedJournalEntry.momentum}}</span>
+    <span>{{selectedJournalEntry.mentalToughness}}</span>
+    <span>{{selectedJournalEntry.willingness}}</span>
+    <span>{{selectedJournalEntry.determination}}</span>
+    <span>{{selectedJournalEntry.motivation}}</span>
+    <span>{{selectedJournalEntry.attitude}}</span>
+    <span>{{selectedJournalEntry.personalImpact}}</span>
+  </div>
+</div>
+</html>

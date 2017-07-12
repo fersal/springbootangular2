@@ -1,0 +1,14 @@
+<html>
+  <div class="col-lg-6" id="content">
+    <h1 *ngIf="journals">You have {{journalSize}} Journals</h1>
+    <ul>
+      <li *ngFor="let journal of journals" (click)="onSelectJournal(journal)" >
+        <div><h3>Journal Name: {{journal.journalName}}</h3></div>
+        <div *ngIf="selectedJournal">
+          <button class="btn btn-success" (click)="addEntry()" >Add an Entry</button>
+          <button class="btn btn-info" (click)="viewHistory()" >View Entries</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</html>
